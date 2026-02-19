@@ -3,11 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>STIMMED THE FUCK UP</title>
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-<link rel="manifest" href="site.webmanifest">
+<title>PISTOL — CS2 Strategy Hub</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&family=Barlow+Condensed:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -39,6 +35,10 @@
 
 body {
   background: var(--bg0);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   color: var(--text);
   font-family: 'Barlow Condensed', sans-serif;
   min-height: 100vh;
@@ -505,12 +505,93 @@ main {
   .col-headers span:nth-child(3),
   .col-headers span:nth-child(4) { display: none; }
 }
+
+@media (max-width: 600px) {
+  /* Header */
+  header {
+    padding: 0 12px;
+    gap: 12px;
+    height: 52px;
+  }
+  .logo {
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
+  .nav-tab {
+    padding: 5px 10px;
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  /* Main */
+  main {
+    padding: 12px 10px 40px;
+  }
+
+  /* Hero */
+  .page-hero {
+    padding: 16px 0 12px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .hero-title {
+    font-size: 24px;
+    letter-spacing: 3px;
+  }
+  .hero-stat {
+    padding: 8px 14px;
+    min-width: 70px;
+  }
+  .hero-stat-num { font-size: 20px; }
+
+  /* Map filter */
+  .map-filter { padding: 10px; gap: 6px; }
+  .map-btn { padding: 4px 10px; font-size: 11px; }
+  .map-filter-label { display: none; }
+
+  /* Map headers */
+  .map-header { padding: 8px 12px; }
+  .map-name { font-size: 16px; letter-spacing: 2px; }
+  .side-header { padding: 8px 12px; font-size: 11px; letter-spacing: 1px; }
+  .sort-indicator { display: none; }
+
+  /* Strat rows - mobile: show only rank, name, win% */
+  .strat-row.ct-row,
+  .col-headers.ct-head {
+    grid-template-columns: 28px 1fr 55px;
+  }
+  .strat-row.t-row,
+  .col-headers.t-head {
+    grid-template-columns: 28px 1fr 55px;
+  }
+  .strat-row .cell,
+  .strat-row .cell-notes,
+  .col-headers span:nth-child(3),
+  .col-headers span:nth-child(4),
+  .col-headers span:nth-child(5) { display: none; }
+  .strat-row { padding: 8px 10px; }
+  .cell-main { font-size: 12px; }
+  .win-badge { font-size: 11px; padding: 2px 6px; }
+
+  /* Roles page */
+  .roles-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    gap: 16px;
+  }
+  .role-item { font-size: 14px; padding: 10px 14px; }
+
+  /* Legend */
+  .legend-bar { gap: 10px; padding: 10px; font-size: 10px; }
+  .sources-bar { gap: 6px; }
+  .source-badge { font-size: 9px; padding: 3px 8px; }
+}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">STIMPACK<span>.</span>GG</div>
+  <div class="logo">PISTOL<span>.</span>GG</div>
   <nav class="nav-tabs" id="navTabs"></nav>
 </header>
 
@@ -779,11 +860,19 @@ function init() {
 function switchTab(id){
   const tabBGs={roles:"images/telige.png",pistol:"images/mad mike.jpg",force:"images/ban.png",halfbuy:"images/Dogbeard.png",rifle:"images/CROSS.png",antieco:"images/STIMPACK.png"};
   document.body.style.backgroundImage=`url('${tabBGs[id]||"images/OO.jpg"}')`;
+  document.body.style.backgroundSize='cover';
+  document.body.style.backgroundPosition='center center';
+  document.body.style.backgroundAttachment='fixed';
+  document.body.style.backgroundRepeat='no-repeat';
   document.querySelectorAll(".nav-tab").forEach(b=>b.classList.toggle("active",b.dataset.tab===id));
   document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.id===`page-${id}`));
   window.scrollTo(0,0);
 }
 document.body.style.backgroundImage="url('images/aadasdas.png')";
+document.body.style.backgroundSize='cover';
+document.body.style.backgroundPosition='center center';
+document.body.style.backgroundAttachment='fixed';
+document.body.style.backgroundRepeat='no-repeat';
 init();
 </script>
 </body>
