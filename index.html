@@ -3,241 +3,166 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="color-scheme" content="dark light">
-  <title>PISTOL.GG — CS2 Pro Strategy Hub</title>
-  <meta name="description" content="Latest CS2 pistol, force buy, half buy, rifle & anti-eco strategies. Map breakdowns, win rates, pro setups from Vitality, NAVI, Spirit, FaZe & more.">
-  <meta name="keywords" content="CS2 strategies, CS2 pistol round, CS2 pro setups, counter-strike 2 tactics, map strats">
+  <title>PISTOL.GG — CS2 Strategy Hub</title>
+  <meta name="description" content="CS2 pro pistol, rifle, force buy & anti-eco strategies with win rates.">
   
-  <!-- Open Graph / Social Sharing -->
-  <meta property="og:title" content="PISTOL.GG – CS2 Strategy Hub">
-  <meta property="og:description" content="Pro-level CS2 round strategies, win rates & roles reference. Updated with 2025 Majors data.">
-  <meta property="og:image" content="https://yourdomain.com/images/og-preview.jpg"> <!-- replace with real URL when hosted -->
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&family=Barlow+Condensed:wght@300;400;500;600;700;800;900&display=swap" as="style">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&family=Barlow+Condensed:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --bg0: #080c14;
-  --bg1: #0d1320;
-  --bg2: #111928;
-  --bg3: #172035;
-  --ct: #00bfff;
-  --ct-light: #00f0ff;
-  --ct-glow: #00f0ff80;
-  --t: #39ff14;
-  --t-light: #7fff00;
-  --t-glow: #39ff1480;
-  --gold: #39ff14;
-  --gold2: #7fff00;
-  --green: #39ff14;
-  --green2: #7fff00;
-  --cyan: #00f0ff;
-  --purple: #d14eea;
-  --new-badge: #00ff9f;
-  --border: #004d40;
-  --text: #e0f7fa;
-  --text-dim: #a0e0ff; /* improved contrast */
-  --map-green: #004d40;
+  --bg0:#080c14; --bg1:#0d1320; --bg2:#111928; --bg3:#172035;
+  --ct:#00bfff; --ct-light:#00f0ff; --ct-glow:#00f0ff80;
+  --t:#39ff14; --t-light:#7fff00; --t-glow:#39ff1480;
+  --gold:#39ff14; --green:#39ff14; --cyan:#00f0ff;
+  --text:#e0f7fa; --text-dim:#a0e0ff; --border:#004d40;
 }
 
-* { margin:0; padding:0; box-sizing:border-box; }
-
+* {margin:0;padding:0;box-sizing:border-box;}
 body {
-  background:var(--bg0);
-  background-size:cover;
-  background-position:center center;
-  background-attachment:fixed;
-  background-repeat:no-repeat;
-  color:var(--text);
-  font-family:'Barlow Condensed',sans-serif;
-  min-height:100vh;
-  overflow-x:hidden;
+  background:var(--bg0); background-size:cover; background-position:center;
+  background-attachment:fixed; color:var(--text); font-family:'Barlow Condensed',sans-serif;
+  min-height:100vh; overflow-x:hidden;
 }
-
 body::before {
-  content:'';
-  position:fixed;
-  inset:0;
+  content:''; position:fixed; inset:0;
   background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.08) 2px,rgba(0,0,0,0.08) 4px);
-  pointer-events:none;
-  z-index:9999;
+  pointer-events:none; z-index:9999;
 }
-
-/* Header, nav, main, etc. – unchanged except for active tab glow */
 header {
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(8,12,20,0.95);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--border);
-  padding:0 24px;
-  display:flex;
-  align-items:center;
-  gap:32px;
-  height:60px;
+  position:sticky; top:0; z-index:100;
+  background:rgba(8,12,20,0.95); backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border); padding:0 24px;
+  display:flex; align-items:center; gap:32px; height:60px;
 }
-
 .logo {
-  font-family:'Rajdhani',sans-serif;
-  font-size:26px;
-  font-weight:700;
-  letter-spacing:4px;
-  color:var(--gold);
+  font-family:'Rajdhani',sans-serif; font-size:26px; font-weight:700;
+  letter-spacing:4px; color:var(--gold);
   text-shadow:0 0 20px var(--cyan),0 0 40px var(--ct-glow);
-  white-space:nowrap;
 }
-
-.logo span { color:var(--cyan); }
-
-.nav-tabs {
-  display:flex;
-  gap:4px;
-  flex:1;
-  overflow-x:auto;
-  scrollbar-width:none;
-}
-.nav-tabs::-webkit-scrollbar { display:none; }
-
+.logo span {color:var(--cyan);}
+.nav-tabs {display:flex; gap:4px; flex:1; overflow-x:auto; scrollbar-width:none;}
+.nav-tabs::-webkit-scrollbar {display:none;}
 .nav-tab {
-  padding:8px 16px; /* slightly larger tap target */
-  background:transparent;
-  border:1px solid var(--border);
-  color:var(--text-dim);
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:13px;
-  font-weight:700;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  cursor:pointer;
-  transition:all .2s;
-  white-space:nowrap;
-  position:relative;
-  overflow:hidden;
-  touch-action:manipulation;
+  padding:8px 16px; background:transparent; border:1px solid var(--border);
+  color:var(--text-dim); font-size:13px; font-weight:700; letter-spacing:2px;
+  text-transform:uppercase; cursor:pointer; transition:all .2s;
 }
-
-.nav-tab::before {
-  content:'';
-  position:absolute;
-  bottom:0;left:0;right:0;
-  height:2px;
-  background:var(--gold);
-  transform:scaleX(0);
-  transition:transform .2s;
-}
-
-.nav-tab:hover { color:var(--text); border-color:#004d40; background:var(--bg2); }
-.nav-tab:hover::before { transform:scaleX(.5); }
-
-.nav-tab.active {
-  color:var(--gold);
-  border-color:var(--gold);
-  background:rgba(57,255,20,.08);
-  box-shadow:0 0 15px var(--ct-glow);
-}
-.nav-tab.active::before { transform:scaleX(1); }
-
-/* Rest of your styles remain mostly unchanged – only showing key adjusted parts for brevity */
-
-.map-btn {
-  padding:8px 16px; /* better tap target */
-  background:var(--bg2);
-  border:1px solid var(--border);
-  color:var(--text-dim);
-  font-family:'Share Tech Mono',monospace;
-  font-size:12px;
-  letter-spacing:1px;
-  cursor:pointer;
-  transition:all .15s;
-  border-radius:2px;
-  touch-action:manipulation;
-}
-
-.map-btn.active {
-  background:rgba(57,255,20,.15);
-  border-color:var(--green);
-  color:var(--green);
-}
-
-/* ... (all your other CSS classes remain the same except the ones already updated in previous messages) ... */
-
-/* Responsive – slightly larger touch targets */
-@media (max-width:600px) {
-  .nav-tab { padding:8px 12px; font-size:12px; }
-  .map-btn { padding:6px 12px; font-size:11px; }
-}
+.nav-tab.active {color:var(--gold); border-color:var(--gold); background:rgba(57,255,20,.08); box-shadow:0 0 15px var(--ct-glow);}
+main {max-width:1400px; margin:0 auto; padding:24px 20px;}
+.page {display:none;}
+.page.active {display:block;}
+/* minimal fallback style */
+.fallback {padding:40px; text-align:center; color:#ff3366; font-size:18px;}
 </style>
 </head>
 <body data-bg="images/aadasdas.png">
 
 <header>
   <div class="logo">PISTOL<span>.</span>GG</div>
-  <nav class="nav-tabs" id="navTabs" role="tablist"></nav>
+  <nav class="nav-tabs" id="navTabs"></nav>
 </header>
 
-<main>
-  <!-- Pages injected by JS -->
+<main id="mainContent">
+  <!-- content will be injected here -->
 </main>
 
 <script defer>
-const DATA = { /* your full DATA object remains unchanged – omitted here for brevity */ };
+const DATA = {
+  // ← Paste your FULL DATA object here (PISTOL, FORCE, HALF BUY, RIFLE, ANTI ECO, ROLES, NEW_STRATS)
+  // If DATA is missing or broken → page shows fallback message
+  PISTOL: {}, FORCE: {}, /* ... etc ... */
+};
 
 const MAPS = ["ANUBIS","ANCIENT","DUST2","INFERNO","MIRAGE","NUKE","OVERPASS"];
-
 const TABS = [
-  { id: "roles", label: "ROLES" },
-  { id: "pistol", label: "PISTOL" },
-  { id: "force", label: "FORCE BUY" },
-  { id: "halfbuy", label: "HALF BUY" },
-  { id: "rifle", label: "RIFLE" },
-  { id: "antieco", label: "ANTI ECO" },
+  {id:"roles", label:"ROLES"},
+  {id:"pistol", label:"PISTOL"},
+  {id:"force", label:"FORCE BUY"},
+  {id:"halfbuy", label:"HALF BUY"},
+  {id:"rifle", label:"RIFLE"},
+  {id:"antieco", label:"ANTI ECO"}
 ];
 
 const tabBGs = {
-  roles:    "images/telige.png",
-  pistol:   "images/mad mike.jpg",
-  force:    "images/ban.png",
-  halfbuy:  "images/Dogbeard.png",
-  rifle:    "images/CROSS.png",
-  antieco:  "images/STIMPACK.png"
+  roles:"images/telige.png",
+  pistol:"images/mad mike.jpg",
+  force:"images/ban.png",
+  halfbuy:"images/Dogbeard.png",
+  rifle:"images/CROSS.png",
+  antieco:"images/STIMPACK.png"
 };
 
-// Lazy background loading
-const bgObserver = new IntersectionObserver((entries) => {
+// Lazy background
+const bgObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       document.body.style.backgroundImage = `url('${entry.target.dataset.bg}')`;
       bgObserver.unobserve(entry.target);
     }
   });
-}, { rootMargin: "200px" });
+}, {rootMargin:"200px"});
 
 function switchTab(id) {
   document.body.dataset.bg = tabBGs[id] || "images/OO.jpg";
-  bgObserver.observe(document.body); // trigger lazy load
+  bgObserver.observe(document.body);
 
   document.querySelectorAll(".nav-tab").forEach(b => b.classList.toggle("active", b.dataset.tab === id));
   document.querySelectorAll(".page").forEach(p => p.classList.toggle("active", p.id === `page-${id}`));
   window.scrollTo(0,0);
 }
 
-// Rest of your script (init, render functions, getStrats, etc.) remains unchanged
-// ... paste your full existing script logic here ...
+function init() {
+  const nav = document.getElementById("navTabs");
+  const main = document.getElementById("mainContent");
 
-// Initial load
-document.addEventListener('DOMContentLoaded', () => {
-  init();
-  // Trigger initial background
-  document.body.dataset.bg = document.body.style.backgroundImage.slice(5,-2) || "images/aadasdas.png";
+  if (!nav || !main) {
+    main.innerHTML = '<div class="fallback">Critical DOM error – check console (F12)</div>';
+    return;
+  }
+
+  TABS.forEach((tab, i) => {
+    const btn = document.createElement("button");
+    btn.className = "nav-tab" + (i===0 ? " active" : "");
+    btn.textContent = tab.label;
+    btn.dataset.tab = tab.id;
+    btn.setAttribute("role", "tab");
+    btn.onclick = () => switchTab(tab.id);
+    nav.appendChild(btn);
+
+    const page = document.createElement("div");
+    page.className = "page" + (i===0 ? " active" : "");
+    page.id = `page-${tab.id}`;
+
+    try {
+      if (tab.id === "roles") {
+        page.innerHTML = `<div class="fallback">Roles page loading...</div>`;
+        // add your renderRolesPage() logic here when ready
+      } else {
+        page.innerHTML = `<div class="fallback">${tab.label} loading...</div>`;
+        // add your renderStratPage(tab.id, tab.label) logic here
+      }
+    } catch (e) {
+      page.innerHTML = `<div class="fallback">Error loading ${tab.label}: ${e.message}</div>`;
+      console.error(e);
+    }
+
+    main.appendChild(page);
+  });
+
+  // Initial background
   bgObserver.observe(document.body);
-});
+}
+
+// Start everything
+try {
+  init();
+} catch (e) {
+  document.getElementById("mainContent").innerHTML = 
+    `<div class="fallback">JavaScript crashed: ${e.message}<br>Open console (F12) for details.</div>`;
+  console.error("Init failed:", e);
+}
 </script>
 </body>
 </html>
