@@ -12,23 +12,29 @@
   --bg1: #0d1320;
   --bg2: #111928;
   --bg3: #172035;
-  --ct: #1565c0;
-  --ct-light: #1e88e5;
-  --ct-glow: #42a5f580;
-  --t: #b71c1c;
-  --t-light: #e53935;
-  --t-glow: #ef535380;
-  --gold: #ffd600;
-  --gold2: #ffab00;
-  --green: #00e676;
-  --green2: #69f0ae;
-  --cyan: #00e5ff;
-  --purple: #7c4dff;
-  --new-badge: #6a1b9a;
-  --border: #1e2d4a;
-  --text: #c8d8f0;
-  --text-dim: #6b7f9e;
-  --map-green: #1b5e20;
+  
+  --ct: #00bfff;             /* neon electric blue */
+  --ct-light: #00f0ff;        /* bright cyan-blue neon */
+  --ct-glow: #00f0ff80;       /* neon blue glow */
+  
+  --t: #39ff14;               /* classic neon green */
+  --t-light: #7fff00;         /* lime neon green */
+  --t-glow: #39ff1480;        /* neon green glow */
+  
+  --gold: #39ff14;            /* repurposed to neon green */
+  --gold2: #7fff00;
+  
+  --green: #39ff14;
+  --green2: #7fff00;
+  
+  --cyan: #00f0ff;
+  --purple: #d14eea;          /* optional cyberpunk purple keep */
+  
+  --new-badge: #00ff9f;       /* bright green for new/pro */
+  --border: #004d40;          /* dark teal-green border */
+  --text: #e0f7fa;            /* light cyan-white text */
+  --text-dim: #80deea;        /* dim cyan-gray */
+  --map-green: #004d40;       /* dark green base for headers */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -76,7 +82,7 @@ header {
   font-weight: 700;
   letter-spacing: 4px;
   color: var(--gold);
-  text-shadow: 0 0 20px rgba(255,214,0,0.5);
+ .logo { ... text-shadow: 0 0 20px var(--cyan), 0 0 40px var(--ct-glow); ... }
   white-space: nowrap;
 }
 
@@ -181,14 +187,11 @@ main {
 /* ===== MAP SECTION ===== */
 .map-section { margin-bottom: 32px; }
 
-.map-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 20px;
-  background: linear-gradient(90deg, var(--map-green) 0%, transparent 100%);
+  .map-header {
+  background: linear-gradient(90deg, var(--green) 0%, transparent 100%);
   border-left: 4px solid var(--green);
-  margin-bottom: 1px;
+  ...
+}
 }
 
 .map-name {
@@ -225,15 +228,15 @@ main {
 }
 
 .side-header.ct-side {
-  background: linear-gradient(90deg, rgba(21,101,192,0.6) 0%, rgba(21,101,192,0.2) 60%, transparent 100%);
+  background: linear-gradient(90deg, rgba(0,240,255,0.6) 0%, rgba(0,240,255,0.2) 60%, transparent 100%);
   border-left: 3px solid var(--ct-light);
-  color: #90caf9;
+  color: var(--ct-light);
 }
 
 .side-header.t-side {
-  background: linear-gradient(90deg, rgba(183,28,28,0.6) 0%, rgba(183,28,28,0.2) 60%, transparent 100%);
+  background: linear-gradient(90deg, rgba(57,255,20,0.6) 0%, rgba(57,255,20,0.2) 60%, transparent 100%);
   border-left: 3px solid var(--t-light);
-  color: #ef9a9a;
+  color: var(--t-light);
 }
 
 .sort-indicator {
