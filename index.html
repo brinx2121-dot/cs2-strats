@@ -820,8 +820,8 @@ function switchTab(id){
     antieco: "images/crossai.png"
   };
   document.body.style.backgroundImage = `url('${tabBGs[id] || "images/OO.jpg"}')`;
-  document.body.style.backgroundSize = '80% auto';
-  document.body.style.backgroundPosition = 'center center';
+  document.body.style.backgroundSize = '1000px';
+  document.body.style.backgroundPosition = 'center 20%';
   document.body.style.backgroundAttachment = 'fixed';
   document.body.style.backgroundRepeat = 'no-repeat';
   
@@ -829,8 +829,8 @@ function switchTab(id){
   document.querySelectorAll(".page").forEach(p => p.classList.toggle("active", p.id === `page-${id}`));
   window.scrollTo(0,0);
 }
-
-document.body.style.backgroundImage = "url('images/aadasdas.png')";
+document.body.style.background         = 'var(--bg0) center center / contain fixed no-repeat url(...)';
+document.body.style.backgroundImage = ;
 document.body.style.backgroundSize = 'cover';
 document.body.style.backgroundPosition = 'center center';
 document.body.style.backgroundAttachment = 'fixed';
