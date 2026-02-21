@@ -809,7 +809,6 @@ function init() {
     main.appendChild(page);
   });
 }
-
 function switchTab(id){
   const tabBGs = {
     roles: "images/trump.png",
@@ -819,22 +818,16 @@ function switchTab(id){
     rifle: "images/beast.png",
     antieco: "images/crossai.png"
   };
-  document.body.style.backgroundImage = `url('${tabBGs[id] || "images/OO.jpg"}')`;
-  document.body.style.backgroundSize = '1000px';
-  document.body.style.backgroundPosition = 'center 20%';
-  document.body.style.backgroundAttachment = 'fixed';
-  document.body.style.backgroundRepeat = 'no-repeat';
-  
+
+  const bgUrl = tabBGs[id] || "images/OO.jpg";
+
+  document.body.style.background = 
+    `var(--bg0) center 15% / auto 65vh fixed no-repeat url('${bgUrl}')`;
+
   document.querySelectorAll(".nav-tab").forEach(b => b.classList.toggle("active", b.dataset.tab === id));
   document.querySelectorAll(".page").forEach(p => p.classList.toggle("active", p.id === `page-${id}`));
   window.scrollTo(0,0);
 }
-document.body.style.background         = 'var(--bg0) center center / contain fixed no-repeat url(...)';
-document.body.style.backgroundImage = ;
-document.body.style.backgroundSize = 'cover';
-document.body.style.backgroundPosition = 'center center';
-document.body.style.backgroundAttachment = 'fixed';
-document.body.style.backgroundRepeat = 'no-repeat';
 
 init();
 </script>
